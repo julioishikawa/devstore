@@ -1,11 +1,39 @@
+// 'use client'
+
+// import { Skeleton } from '@/components/skeleton'
+// import { useSearchParams } from 'next/navigation'
+
+// export default function SearchLoading() {
+//   const searchParams = useSearchParams()
+
+//   const query = searchParams.get('q')
+
+//   return (
+//     <div className="flex flex-col gap-4">
+//       <p className="text-sm">
+//         Resultados para <span className="font-semibold">{query}</span>
+//       </p>
+
+//       <div className="grid grid-cols-3 gap-6">
+//         <Skeleton className="h-[379px]" />
+//         <Skeleton className="h-[379px]" />
+//         <Skeleton className="h-[379px]" />
+//         <Skeleton className="h-[379px]" />
+//         <Skeleton className="h-[379px]" />
+//         <Skeleton className="h-[379px]" />
+//       </div>
+//     </div>
+//   )
+// }
+
 'use client'
 
 import { Skeleton } from '@/components/skeleton'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
-export default function SearchLoading() {
+function SearchResults() {
   const searchParams = useSearchParams()
-
   const query = searchParams.get('q')
 
   return (
@@ -13,7 +41,6 @@ export default function SearchLoading() {
       <p className="text-sm">
         Resultados para <span className="font-semibold">{query}</span>
       </p>
-
       <div className="grid grid-cols-3 gap-6">
         <Skeleton className="h-[379px]" />
         <Skeleton className="h-[379px]" />
@@ -23,5 +50,13 @@ export default function SearchLoading() {
         <Skeleton className="h-[379px]" />
       </div>
     </div>
+  )
+}
+
+export default function SearchLoading() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchResults />
+    </Suspense>
   )
 }

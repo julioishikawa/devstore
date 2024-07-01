@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     template: '%s | devstore',
     default: 'devstore',
   },
+  metadataBase: new URL('http://localhost:3000'),
 }
 
 export default function RootLayout({
