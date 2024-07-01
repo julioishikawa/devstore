@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 
 export function Header() {
   return (
-    <Suspense fallback={<div>shit ESSE ESTÁ CORRETO</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-5">
           <Link href="/" className="text-2xl font-extrabold text-white">
