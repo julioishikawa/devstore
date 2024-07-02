@@ -52,7 +52,7 @@ export default function SearchLoading() {
 
 // export default function SearchLoading() {
 //   return (
-//     <Suspense fallback={<div>Loading...</div>}>
+//     <Suspense fallback={null}>
 //       <SearchResults />
 //     </Suspense>
 //   )
